@@ -12,23 +12,19 @@ import Foundation
  K는 합을 구하기 위한 연속적인 날짜의 수이다. K는 1과 N 사이의 정수
  매일 측정한 온도를 나타내는 N개의 정수가 빈칸을 사이에 두고 주어진다. 이 수들은 모두 -100 이상 100 이하
  */
-
 var input = readLine()?.split(separator: " ").map( {Int(String($0))!} )
 var input2 = readLine()?.split(separator: " ").map( {Int(String($0))!} )
 
 if let a1 = input, let a2 = input2 {
-    let c = getTemp(n: a1[0], k: a1[1], everyDays: a2)
-    print(c)
-}
+    let n = a1[0]
+    let k = a1[1]
+    let everyDays = a2
 
-func getTemp(n: Int, k: Int, everyDays: [Int]) -> Int {
     var sum: Int = 0
     var result: Int = 0
     
-    var def: Int = 0
-    while def < k {
-        sum += everyDays[def]
-        def += 1
+    for i in 0..<k {
+        sum += everyDays[i]
     }
     
     var temp: Int = sum
@@ -41,6 +37,7 @@ func getTemp(n: Int, k: Int, everyDays: [Int]) -> Int {
         }
         sum = temp
     }
-    return result
+    print(result)
 }
+
 
