@@ -1,6 +1,6 @@
 //
-//  SequenceTemperature.swift
-//  Exercise
+//  main.swift
+//  Test
 //
 //  Created by Dahye on 2021/03/12.
 //
@@ -16,19 +16,17 @@ import Foundation
 // 날짜수가 10
 // 더할 날짜가 2
 // 10개의 배열을 돌린다고 가정하고
-func getTemp(days: Int64, sumDays: Int, everyDays: [Int64]) -> Int64 {
-    var sum: Int64 = Int64.min
-    
-    
+func getTemp(days: Int64, sumDays: Int, everyDays: [Int]) -> Int {
+    var sum: Int = 0
     var i = 0
     while i < sumDays {
         sum += everyDays[i]
         i += 1
     } // 첫번째 2개의 값을 구함
     
-    for dayCount in  i...everyDays.count {
-        var temp: Int64 = 0
-        temp = sum - everyDays[dayCount-sumDays-1] + everyDays[dayCount]
+    for dayCount in  0..<everyDays.count {
+        var temp: Int = 0
+        temp = sum - everyDays[dayCount-sumDays] + everyDays[dayCount]
         
         if temp > sum {
             sum = temp
@@ -39,24 +37,14 @@ func getTemp(days: Int64, sumDays: Int, everyDays: [Int64]) -> Int64 {
     return sum
 }
 
-var days: Int64
-var sumDays: Int
-var everyDays: [Int]
+var input = readLine()?.split(separator: " ").map( {Int(String($0))!} )
+var input2 = readLine()?.split(separator: " ").map( {Int(String($0))!} )
 
-var input = readLine()
-if let input = input {
-    let inputs = input.split(separator: " ")
-    if let t = inputs[0] {
-        days = Int64(t)
-    }
-    if let t = inputs[1] {
-        sumDays = Int(t)
-    }
-    print(inputs)
-}
-
-var input2 = readLine()
-if let input2 = input2 {
-    let inputs = input2.split(separator: " ")
-    print(inputs)
+if let a1 = input, let a2 = input2 {
+    let days = Int64(a1[0])
+    let sumDays = a1[1]
+    let everyDays = a2
+    
+    let c = getTemp(days: days, sumDays: sumDays, everyDays: everyDays)
+    print(c)
 }
