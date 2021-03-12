@@ -31,10 +31,9 @@ if let a1 = input, let a2 = input2 {
         temp -= everyDays[i-k]
         temp += everyDays[i]
         
-        if temp > sum {
+        if temp > result {
             result = temp
         }
-        sum = temp
     }
     print(result)
 }
