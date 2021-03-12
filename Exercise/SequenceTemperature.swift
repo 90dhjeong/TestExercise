@@ -21,11 +21,10 @@ if let a1 = input, let a2 = input2 {
     let everyDays = a2
 
     var sum: Int = 0
-    var result: Int = 0
-    
     for i in 0..<k {
         sum += everyDays[i]
     }
+    var result: Int = sum
     
     var temp: Int = sum
     for i in k..<n {
