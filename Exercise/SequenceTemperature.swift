@@ -24,18 +24,17 @@ if let a1 = input, let a2 = input2 {
     for i in 0..<k {
         sum += everyDays[i]
     }
-    var result: Int = sum
     
     var temp: Int = sum
     for i in k..<n {
         temp -= everyDays[i-k]
         temp += everyDays[i]
         
-        if temp > result {
-            result = temp
+        if temp > sum {
+            sum = temp
         }
     }
-    print(result)
+    print(sum)
 }
 
 
